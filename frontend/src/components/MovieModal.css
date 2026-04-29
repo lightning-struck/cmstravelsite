@@ -1,0 +1,166 @@
+/* Затемнение на весь экран */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+}
+
+/* Модальное окно - центрирование через translate */
+.modal-content2 {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    
+    /* Оформление */
+    background: linear-gradient(135deg, #ffffff, #e3f2fd);
+    border-radius: 15px;
+    padding: 20px;
+    width: 90%;
+    max-width: 900px;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease;
+}
+
+/* Тело модального окна */
+.modal-body {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+/* Изображение */
+.modal-poster {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Кнопка закрытия */
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    color: #ff5252;
+    font-size: 28px;
+    font-weight: bold;
+    transition: color 0.3s, transform 0.3s;
+    background: none;
+    border: none;
+    z-index: 10;
+}
+
+.close-button:hover {
+    color: #d32f2f;
+    transform: rotate(90deg);
+}
+
+/* Заголовок */
+.modal-title {
+    font-size: 28px;
+    color: #333;
+    margin: 0 0 10px;
+    padding-right: 30px;
+    text-align: center;
+}
+
+/* Детали */
+.modal-details {
+    flex: 1;
+    text-align: left;
+}
+
+.modal-details p {
+    margin: 8px 0;
+    font-size: 16px;
+    color: #444;
+}
+
+/* Описание со скроллом */
+.modal-description-text {
+    max-height: 200px;
+    overflow-y: auto;
+    line-height: 1.5;
+    color: #555;
+    margin-top: 10px;
+    padding-right: 10px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    text-align: left;
+}
+
+.modal-description-text::-webkit-scrollbar {
+    width: 5px;
+}
+
+.modal-description-text::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+.modal-description-text::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+/* Кнопка связи */
+.buy-ticket-button {
+    background-color: #000000;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.3s;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.buy-ticket-button:hover {
+    background-color: #252424;
+    transform: scale(0.98) !important;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .modal-body {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .modal-poster {
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .modal-title {
+        font-size: 22px;
+        text-align: center;
+        padding-right: 0;
+    }
+    
+    .modal-content2 {
+        width: 95%;
+        max-height: 90vh;
+    }
+}

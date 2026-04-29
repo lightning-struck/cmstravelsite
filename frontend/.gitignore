@@ -1,0 +1,128 @@
+############################
+# OS generated files
+############################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+############################
+# Logs and databases
+############################
+*.log
+*.sql
+*.sqlite
+*.sqlite3
+
+############################
+# Node.js (общий)
+############################
+node_modules/
+lib-cov/
+lcov.info
+pids/
+logs/
+results/
+.npm
+.node_repl_history
+.node_history
+.pnpm-store
+*.tgz
+yarn-error.log
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+############################
+# Build and cache
+############################
+build/
+dist/
+.cache/
+.eslintcache
+.tsbuildinfo
+.parcel-cache/
+.next/
+out/
+.nuxt/
+
+############################
+# IDE and editors
+############################
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+
+############################
+# Environment variables
+############################
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+############################
+# Strapi specific
+############################
+license.txt
+exports/
+.strapi
+.strapi-updater.json
+.strapi-cloud.json
+!public/uploads/.gitkeep
+**/public/uploads/*
+!**/public/uploads/.gitkeep
+
+############################
+# Frontend (React)
+############################
+**/frontend/build/
+**/frontend/node_modules/
+**/frontend/coverage/
+
+############################
+# Backend (Strapi)
+############################
+**/backend/node_modules/
+**/backend/.cache/
+**/backend/build/
+**/backend/dist/
+**/backend/public/uploads/
+**/backend/database/*.sqlite
+**/backend/database/*.sqlite-journal
+**/backend/exports/
+**/backend/.strapi
+
+############################
+# Archive and dist files
+############################
+*.7z
+*.cab
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.com
+*.exe
+*.msi
+*.msm
+*.msp
+
+############################
+# Optional: Keep small database for demo
+############################
+# !**/backend/.tmp/data.db

@@ -1,0 +1,223 @@
+.cinema-schedule {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.schedule-title {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 36px;
+  color: #333;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 12px;
+}
+
+.schedule-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 3px;
+}
+
+/* Swiper контейнер */
+.movie-swiper {
+  /* padding: 20px 10px 50px !important; */
+  /* max-width: 1400px; */
+  margin: 0 auto;
+  overflow: visible !important;
+}
+
+/* Карточка тура */
+.movie-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cinema_container {
+  position: relative;
+  padding: 40px 0;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Изображение */
+.movie-poster {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+/* Информация о туре */
+.movie-info {
+  padding: 15px;
+  flex: 1;
+}
+
+.movie-title {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.movie-duration {
+  margin: 5px 0;
+  font-size: 13px;
+  color: #666;
+}
+
+.movie-price {
+  margin: 8px 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Кнопка "Узнать больше" */
+.ticket-button {
+  margin: 0 15px 20px;
+  padding: 20px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: calc(100% - 30px);
+}
+
+.ticket-button:hover {
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Иконка сердечка */
+.heart-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transition:
+    fill 0.3s,
+    stroke 0.3s;
+}
+
+.heart-icon:hover {
+  fill: #ff4757;
+  stroke: #ff4757;
+}
+
+/* Пагинация Swiper */
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: #667eea;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #667eea;
+}
+
+/* Скроллбар */
+.swiper-scrollbar {
+  background: #e0e0e0;
+  height: 4px;
+}
+
+.swiper-scrollbar-drag {
+  background: #667eea;
+}
+
+/* Состояния загрузки */
+.loading-slider,
+.no-movies {
+  text-align: center;
+  font-size: 18px;
+  color: #999;
+  padding: 50px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .cinema-schedule {
+    padding: 40px 15px;
+  }
+
+  .schedule-title {
+    font-size: 28px;
+  }
+
+  .movie-poster {
+    height: 180px;
+  }
+
+  .movie-title {
+    font-size: 16px;
+  }
+
+  .movie-price {
+    font-size: 18px;
+  }
+}
+.cinema-schedule_navbar {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  display: flex;
+  gap: 12px;
+  z-index: 2;
+}
+.cinema-schedule_navbar_item {
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  outline: none;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+
+.navbar_arrow_left {
+  transform: rotate(180deg);
+}
+
+.cinema-schedule_navbar_item:hover {
+  opacity: 0.9;
+}

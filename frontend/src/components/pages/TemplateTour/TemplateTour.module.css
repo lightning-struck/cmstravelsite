@@ -1,0 +1,202 @@
+.templateTour {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Заголовок */
+.tourHeader {
+  margin-bottom: 30px;
+}
+
+.tourTitle {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.tourMeta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.tourDuration,
+.tourPrice,
+.tourCountry {
+  padding: 6px 14px;
+  background: #f0f0f0;
+  border-radius: 30px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Табы */
+.tourTabs {
+  display: flex;
+  gap: 10px;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 25px;
+}
+
+.tabBtn {
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #666;
+  transition: all 0.3s;
+}
+
+.tabBtn:hover {
+  color: #007bff;
+}
+
+.active {
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
+  margin-bottom: -2px;
+}
+
+/* Контент */
+.tabContent {
+  min-height: 200px;
+  margin-bottom: 30px;
+}
+
+.tourDescription {
+  line-height: 1.6;
+  color: #444;
+}
+
+.tourDescription p {
+  margin-bottom: 15px;
+}
+
+/* Отели */
+.tourHotels h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.hotelsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.hotelCard {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.hotelCard:hover {
+  transform: translateY(-5px);
+}
+
+.hotelCard img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.hotelInfo {
+  padding: 15px;
+}
+
+.hotelInfo h4 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.hotelInfo p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.hotelPrice {
+  display: inline-block;
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Кнопка заявки */
+.tourBookingBtn {
+  width: 100%;
+  padding: 14px;
+  margin: 30px 0 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border: none;
+  border-radius: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.tourBookingBtn:hover {
+  transform: scale(1.02);
+}
+
+/* Галерея */
+.tourGallery {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.tourSwiper {
+  height: 500px;
+}
+
+.tourSlideImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Состояния загрузки */
+.tourLoading,
+.tourError {
+  text-align: center;
+  padding: 100px 20px;
+  font-size: 18px;
+  color: #666;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .templateTour {
+    padding: 20px;
+  }
+
+  .tourTitle {
+    font-size: 24px;
+  }
+
+  .tourMeta {
+    gap: 10px;
+  }
+
+  .tabBtn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .tourSwiper {
+    height: 300px;
+  }
+
+  .hotelsGrid {
+    gap: 15px;
+  }
+}

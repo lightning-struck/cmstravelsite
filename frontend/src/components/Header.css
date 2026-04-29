@@ -1,0 +1,552 @@
+.header-container {
+  background: white;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  font-family: "Poppins", sans-serif;
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.header-actions {
+  display: flex;
+  gap: 30px;
+}
+
+.button_call {
+  background-color: #e63946;
+  color: white;
+}
+.button_call:hover {
+  background-color: #d62826;
+}
+
+.button_contacts {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  padding: 0;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid #e63946;
+  cursor: pointer;
+  transition: ease 0.4s;
+}
+
+.button_contacts:hover {
+  background-color: #d62826;
+}
+
+.button_contacts:hover svg path {
+  fill: white;
+}
+.button_contacts svg path {
+  transition: ease 0.4s;
+  fill: #c5c5d0;
+}
+
+.nav_arrow {
+  transform: translateY(2px);
+  background-color: #e63946;
+  display: flex;
+  align-items: center;
+  width: 14px;
+  height: 14px;
+  justify-content: center;
+  border-radius: 50%;
+  transition: ease 0.3s;
+}
+.nav_arrow svg {
+  margin-top: 1px;
+  width: 11px;
+  height: 11px;
+}
+.nav_arrow svg path {
+  stroke: white;
+}
+
+.link_toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.logo {
+  height: 50px;
+  /* margin-right: 40px; */
+}
+/* Стили для логотипа */
+/* Стили для логотипа */
+.logo {
+  transition: transform 0.3s ease; /* Плавное изменение размера */
+  cursor: pointer; /* Курсор "по-руке" */
+}
+
+.logo:active {
+  transform: scale(1.1); /* Увеличение при клике */
+}
+
+/* Добавьте другие стили для header, если необходимо */
+
+.nav-menu {
+  background-color: #f5f5f7;
+  padding: 0 42px;
+  border-radius: 50px;
+
+  position: relative;
+}
+
+.header_scrolling {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.nav-menu ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+.nav-menu a {
+  font-weight: 500;
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s;
+  font-size: 14px;
+  position: relative;
+}
+.nav-menu a:hover {
+  color: #e63946;
+}
+.nav-menu a.active {
+  color: #e63946;
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.info-box {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+  background-color: #fff;
+  padding: 10px 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0.5%;
+  left: 5%;
+  color: #333;
+  z-index: 1;
+  font-family: "Poppins", sans-serif;
+}
+.theme-toggle {
+  background-color: transparent; /* Прозрачный фон */
+  border: 2px solid var(--primary-color); /* Границы основного цвета */
+  color: var(--primary-color); /* Цвет текста/иконки */
+  border-radius: 50%; /* Круглая кнопка */
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Плавный переход для всех свойств */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 1.2rem; /* Размер иконки */
+}
+
+/* Эффект при наведении */
+.theme-toggle:hover {
+  background-color: var(--primary-color); /* Основной цвет */
+  color: #e63946;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Больше тени */
+}
+
+/* Активное состояние */
+.theme-toggle:active {
+  transform: scale(0.95); /* Лёгкое сжатие */
+}
+
+.search-icon:hover {
+  transform: scale(1.1);
+}
+.weather-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.info-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.weather-info,
+.currency-info {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.weather-info span {
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.currency-info {
+  display: flex;
+  gap: 10px;
+  width: 65px;
+}
+.dropdown-menu {
+  position: absolute;
+  background-color: #f5f5f7;
+  width: 100%;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  z-index: 1000;
+  top: 70px;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease;
+  min-height: 300px;
+  overflow: hidden;
+}
+.dropdown-menu.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.dropdown-news {
+  width: 200px;
+}
+.dropdown-services {
+  width: 10px;
+}
+.dropdown-avisha {
+  width: 180px;
+}
+.dropdown-drom {
+  width: 220px;
+}
+.dropdown-farpost {
+  width: 300px;
+}
+.dropdown-menu ul {
+  padding: 20px 0;
+  flex-direction: column;
+  list-style: none;
+  margin: 0 20px;
+}
+.dropdown-menu ul li {
+  padding: 25px;
+  background: white;
+  border-radius: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dropdown-menu li a {
+  width: 100%;
+  text-decoration: none;
+  color: #333;
+  font-weight: 1500;
+  display: block;
+}
+.dropdown-menu li span {
+  background-color: #f5f5f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
+}
+.dropdown-menu li:hover a {
+  color: #e63946;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+[data-theme="dark"] {
+  --background-color: #1c1c1c;
+  --text-color: #f5f5f5;
+  --header-bg-color: #333333;
+  --header-text-color: #f0f0f0;
+  --link-color: #4db8ff;
+  --button-bg-color: #007bff;
+  --button-text-color: #ffffff;
+}
+
+[data-theme="dark"] body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .header-container {
+  background-color: var(--header-bg-color);
+  color: var(--header-text-color);
+}
+
+[data-theme="dark"] .nav-menu a {
+  color: var(--link-color);
+}
+
+[data-theme="dark"] button {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+}
+
+[data-theme="dark"] .footer-container {
+  background: #202020;
+}
+
+[data-theme="dark"] .footer-container {
+  background: #202020;
+}
+
+[data-theme="dark"] .footer-column h4 {
+  color: #6bb3ff;
+}
+
+[data-theme="dark"] .footer-column ul li a {
+  color: white;
+}
+
+[data-theme="dark"] .footer-social h4 {
+  color: #6bb3ff;
+}
+
+[data-theme="dark"] .social-icons li a i {
+  color: #6bb3ff;
+}
+
+[data-theme="dark"] .footer-copyright {
+  color: white;
+}
+
+[data-theme="dark"] .footer-info a {
+  color: white;
+}
+
+[data-theme="dark"] .header-container {
+  background: #202020;
+}
+
+[data-theme="dark"] .title {
+  background: #202020;
+}
+
+[data-theme="dark"] .icon {
+  background-color: #202020;
+}
+
+[data-theme="dark"] .icon-label {
+  color: white;
+}
+
+[data-theme="dark"] .category-icon {
+  color: white;
+}
+
+[data-theme="dark"] .title {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .recreation-centers {
+  background-color: #202020;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.2),
+    0 -4px 12px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .centers-title {
+  color: white;
+}
+
+[data-theme="dark"] .view-all-link {
+  color: white;
+}
+
+[data-theme="dark"] .schedule-title {
+  color: white;
+}
+
+[data-theme="dark"] .filter-buttons button {
+  border: 2px solid #ffffff;
+  background-color: #202020;
+}
+
+[data-theme="dark"] .small-news-item {
+  background-color: #202020;
+
+  color: #ffffff;
+}
+
+[data-theme="dark"] .small-news-title {
+  color: white;
+}
+
+[data-theme="dark"] .main-news {
+  background-color: #202020;
+}
+
+[data-theme="dark"] .recent-news-item {
+  background-color: #202020;
+}
+
+[data-theme="dark"] .recent-news-title,
+.no-water-title {
+  color: white;
+}
+
+[data-theme="dark"] .no-water-item {
+  background-color: #202020;
+}
+
+[data-theme="dark"] .no-water-title {
+  color: white;
+}
+
+[data-theme="dark"] .search-overlay {
+  background-color: #fff;
+  border: 2px solid #ffffff;
+}
+
+[data-theme="dark"] .info-container {
+  background-color: transparent;
+  color: #6bb3ff;
+}
+
+[data-theme="dark"] .dropdown-menu {
+  background-color: #202020;
+}
+
+[data-theme="dark"] .chat-header h3 {
+  color: #6bb3ff;
+}
+
+[data-theme="dark"] .chat-body {
+  color: #202020;
+}
+
+[data-theme="dark"] .resort-card {
+  background-color: #202020;
+}
+
+[data-theme="dark"] p {
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+[data-theme="dark"] small {
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .kupon-card {
+  background-color: #202020;
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease;
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+  .nav-menu ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .logo {
+    height: 40px;
+    margin-bottom: 10px;
+  }
+  .right-section {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .search-overlay {
+    right: 10px;
+  }
+  .search-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .search-form input,
+  .search-form button {
+    width: 100%;
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    padding: 10px 15px;
+  }
+  .nav-menu a {
+    font-size: 0.9rem;
+  }
+  .info-box {
+    padding: 5px 10px;
+  }
+  .search-form button {
+    padding: 10px;
+  }
+  .search-overlay {
+    right: 5px;
+  }
+}
+.search-overlay.active {
+  width: 20%;
+}
+.search-form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.dropdown-menu-list{
+  display: grid !important;
+  grid-template-columns: repeat(3,1fr) !important;
+  gap: 12px !important;
+}
