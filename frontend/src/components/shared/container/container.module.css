@@ -15,8 +15,21 @@
     max-width: 1200px;
   }
 }
+
 @media screen and (max-width: 1280px) {
   .container {
-    max-width: 1120px;
+    max-width: 768px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 560px;
+    padding: 0 10px;
+  }
+}
+@media screen and (max-width: 590px) {
+  .container {
+    max-width: 355px;
+    padding: 0 10px;
   }
 }

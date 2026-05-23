@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "informations",
+  "info": {
+    "singularName": "information",
+    "pluralName": "informations",
+    "displayName": "Информация"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "textName": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "blocks"
+    }
+  }
+}

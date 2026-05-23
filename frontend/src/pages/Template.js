@@ -12,9 +12,9 @@ export default function Template() {
 
   useEffect(() => {
     // ✅ Правильный синтаксис populate для Strapi v5
-    const url = `${clientRoutes.getCurrentTour}${tourSlug}&populate=country&populate=Image&populate=hotels`;
+    const url = `${clientRoutes.getCurrentTour}${tourSlug}&populate[country][populate]=*&populate[hotels][populate]=Photo&populate[Image]=true`;
     console.log("Запрос:", url);
-    
+
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -33,8 +33,10 @@ export default function Template() {
       });
   }, [tourSlug]);
 
-  if (loading) return <div className={styles.tourLoading}>Загрузка тура...</div>;
-  if (error || !tour) return <div className={styles.tourError}>Тур не найден</div>;
+  if (loading)
+    return <div className={styles.tourLoading}>Загрузка тура...</div>;
+  if (error || !tour)
+    return <div className={styles.tourError}>Тур не найден</div>;
 
   return <TemplateTour tour={tour} />;
 }

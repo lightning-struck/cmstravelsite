@@ -1,0 +1,84 @@
+.card {
+    border-radius: 12px;
+    background-color: #eee;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.card_header_profile_wrapper_image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgb(252, 119, 119);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+
+.card_header_profile_image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    object-position: top center;
+
+}
+
+.card_header_profile {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+}
+
+.card_header_profile_name {
+    font-weight: bold;
+    margin: 0;
+}
+
+.card_header_profile_tour {
+    margin: 0;
+    font-size: 14px;
+    color: red;
+}
+
+.date {
+    font-weight: 500;
+    font-size: 12px;
+    color: #6e6e6e;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.text {
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 16px;
+    line-height: 25px;
+}
+
+.tour_btn {
+    text-decoration: none;
+  padding: 10px 12px;
+  background: #e63946;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: ease 0.2s;
+  margin-top: 20px;
+}

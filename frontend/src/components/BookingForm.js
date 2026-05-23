@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import './BookingForm.css';
 import { clientRoutes } from '../routes/client.routes';
 import BookingFormContent from './BookingFormContent';
+import classNames from 'classnames';
 
-function BookingForm({ tours }) {
+function BookingForm({ tours, className }) {
     const [formData, setFormData] = useState({
         Name: '',
         Email: '',
@@ -83,7 +84,7 @@ function BookingForm({ tours }) {
     };
 
     return (
-        <div className="booking-form" id="booking">
+        <div className={classNames("booking-form", className)} id="booking">
             <div className="booking-container">
                 <h2>Оставить заявку</h2>
                 <p>Заполните форму, и наш менеджер свяжется с вами для подбора тура</p>

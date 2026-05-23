@@ -18,6 +18,7 @@ import "swiper/css";
 import MainSection from "./components/MainSection";
 import { clientRoutes } from "./routes/client.routes";
 import Template from "./pages/Template";
+import { Reviews } from "./pages/Reviews";
 
 function App() {
   const [tours, setTours] = useState([]);
@@ -62,6 +63,7 @@ function App() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/offer" element={<Offer />} />
           <Route path="/insurance" element={<Insurance />} />
+          <Route path="/reviews" element={<Reviews />} />
           <Route path="/tours">
             <Route path=":tour" element={<Template />} />
           </Route>

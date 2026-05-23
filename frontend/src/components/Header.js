@@ -204,7 +204,6 @@ const Header = () => {
     }, 500);
   };
 
-
   return (
     <>
       <header
@@ -258,16 +257,16 @@ const Header = () => {
                           <li className="loading-item">Загрузка...</li>
                         ) : cities.length > 0 ? (
                           cities.map((city, index) => (
-                            <li key={index}>
-                              <a
-                                href={`/tours/${city.slug}`}
-                                onClick={(e) => {
-                                  // handleCityClick(city);
-                                }}
-                              >
-                                {city.title}
-                              </a>
-                            </li>
+                            <a
+                              className="dropdown-menu-list-item"
+                              key={index}
+                              href={`/tours/${city.slug}`}
+                              onClick={(e) => {
+                                // handleCityClick(city);
+                              }}
+                            >
+                              <li>{city.title}</li>
+                            </a>
                           ))
                         ) : (
                           <li className="empty-item">Нет доступных туров</li>
@@ -366,17 +365,9 @@ const Header = () => {
                       </ul>
                     </div>
                   </li>
+
                   <li>
-                    <a href="/gallery">Галерея</a>
-                  </li>
-                  <li>
-                    <a href="#">Отзывы</a>
-                  </li>
-                  <li>
-                    <a href="#">Блог</a>
-                  </li>
-                  <li>
-                    <a href="#">Контакты</a>
+                    <a href="/reviews">Отзывы</a>
                   </li>
                 </ul>
               </nav>
