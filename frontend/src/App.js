@@ -19,6 +19,7 @@ import MainSection from "./components/MainSection";
 import { clientRoutes } from "./routes/client.routes";
 import Template from "./pages/Template";
 import { Reviews } from "./pages/Reviews";
+import ServicesPage from "./pages/Services";
 
 function App() {
   const [tours, setTours] = useState([]);
@@ -60,10 +61,12 @@ function App() {
           <Route path="/gallery" element={<GalleryPage />} />
           {/* Новые страницы */}
           <Route path="/faq" element={<FAQ />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/offer" element={<Offer />} />
-          <Route path="/insurance" element={<Insurance />} />
+          <Route path="/privacy-policy" element={<Privacy />} />
+          <Route path="/oferta" element={<Offer />} />
+          <Route path="/insure" element={<Insurance />} />
           <Route path="/reviews" element={<Reviews />} />
+          <Route path="/ekskursii" element={<ServicesPage />} />
+          <Route path="/transfer" element={<ServicesPage />} />
           <Route path="/tours">
             <Route path=":tour" element={<Template />} />
           </Route>

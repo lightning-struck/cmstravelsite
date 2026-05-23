@@ -1,38 +1,47 @@
-import React from 'react';
-import './Pages.css';
+import React, { useEffect, useState } from "react";
+import "./Pages.css";
+import { useLocation, useNavigate } from "react-router-dom";
+import { clientRoutes } from "../routes/client.routes";
+import { renderBlocksToHTML } from "../utils/renderBlock";
+
 
 const Insurance = () => {
-    return (
-        <div className="page-container">
-            <h1 className="page-title">Страховка туристов</h1>
-            <div className="page-content">
-                <p>Медицинская страховка — обязательное условие для поездки за границу.</p>
-                
-                <h2>Что покрывает страховка</h2>
-                <ul>
-                    <li>✅ Медицинские услуги при внезапном заболевании или травме</li>
-                    <li>✅ Стоматологическая помощь (острая боль)</li>
-                    <li>✅ Транспортировка в больницу</li>
-                    <li>✅ Экстренная репатриация (возвращение на родину)</li>
-                    <li>✅ Телемедицинская консультация</li>
-                </ul>
-                
-                <h2>Что НЕ покрывает страховка</h2>
-                <ul>
-                    <li>❌ Обострение хронических заболеваний</li>
-                    <li>❌ Беременность и роды</li>
-                    <li>❌ Алкогольное опьянение</li>
-                    <li>❌ Экстремальные виды спорта (требуется расширенный полис)</li>
-                </ul>
-                
-                <h2>Как получить помощь</h2>
-                <p>В экстренной ситуации звоните по номеру круглосуточной службы поддержки, указанному в страховом полисе. Оператор свяжет вас с ближайшей клиникой.</p>
-                
-                <h2>Стоимость страховки</h2>
-                <p>Страховка включена в стоимость всех наших туров. При самостоятельной поездке стоимость — от 500 ₽ в день.</p>
-            </div>
-        </div>
-    );
+  const nav = useLocation();
+  const pathName = nav.pathname.replace("/", "");
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  useEffect(() => {
+    const url = clientRoutes.getInformation + pathName;
+    console.log("Запрос:", url);
+
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Ответ API:", data);
+        if (data.data && data.data.length > 0) {
+          setData(data.data[0]);
+        } else {
+          setError(true);
+        }
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Ошибка загрузки тура:", err);
+        setError(true);
+        setLoading(false);
+      });
+  }, [pathName]);
+
+  console.log(data)
+  if (!data ) return null
+  return (
+    <div className="page-container">
+      <h1 className="page-title">{data.textName}</h1>
+      <div className="page-content" dangerouslySetInnerHTML={{__html: renderBlocksToHTML(data.description) }} />
+       
+    </div>
+  );
 };
 
-export default Insurance;   
+export default Insurance;

@@ -8,4 +8,6 @@ export const clientRoutes = {
   getCurrentTour: `${BASE_URL}/api/tours?filters[slug][$eq]=`,
   getHotels: `${BASE_URL}/api/hotels`,
   getReviews: `${BASE_URL}/api/feedbacks?populate=*`,
+  getInformation: `${BASE_URL}/api/informations?filters[slug][$eq]=`,
+  getServices:`${BASE_URL}/api/services?filters[slug][$eq]=` 
 };

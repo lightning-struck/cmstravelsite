@@ -1,30 +1,64 @@
-import React from 'react';
-import './Pages.css';
+// pages/Privacy.jsx
+import React, { useEffect, useState } from "react";
+import "./Pages.css";
+import { useLocation } from "react-router-dom";
+import { clientRoutes } from "../routes/client.routes";
+import { renderBlocksToHTML } from "../utils/renderBlock";
 
 const Privacy = () => {
+  const nav = useLocation();
+  const pathName = nav.pathname.replace("/", "");
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    const url = clientRoutes.getInformation + pathName;
+    console.log("Запрос Privacy Policy:", url);
+
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Ответ API Privacy:", data);
+        if (data.data && data.data.length > 0) {
+          setData(data.data[0]);
+        } else {
+          setError(true);
+        }
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Ошибка загрузки Privacy Policy:", err);
+        setError(true);
+        setLoading(false);
+      });
+  }, [pathName]);
+
+  if (loading) {
     return (
-        <div className="page-container">
-            <h1 className="page-title">Политика конфиденциальности</h1>
-            <div className="page-content">
-                <p>Настоящая Политика конфиденциальности определяет порядок обработки и защиты персональных данных пользователей сайта ООО «Мир Путешествий».</p>
-                
-                <h2>1. Сбор персональных данных</h2>
-                <p>Мы собираем следующие данные: ФИО, контактный телефон, адрес электронной почты, данные о выбранном туре.</p>
-                
-                <h2>2. Использование данных</h2>
-                <p>Ваши данные используются исключительно для обработки заявок, бронирования туров и информирования о специальных предложениях.</p>
-                
-                <h2>3. Передача данных третьим лицам</h2>
-                <p>Мы не передаем ваши персональные данные третьим лицам без вашего согласия, за исключением случаев, предусмотренных законодательством РФ.</p>
-                
-                <h2>4. Хранение данных</h2>
-                <p>Ваши данные хранятся на защищенных серверах и используются только в течение срока, необходимого для выполнения обязательств.</p>
-                
-                <h2>5. Ваши права</h2>
-                <p>Вы имеете право запросить удаление или изменение ваших персональных данных, написав нам на email: info@mir-puteshestviy.ru</p>
-            </div>
-        </div>
+      <div className="page-container">
+        <div className="loading">Загрузка...</div>
+      </div>
     );
+  }
+
+  if (error || !data) {
+    return (
+      <div className="page-container">
+        <div className="error">Страница не найдена</div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="page-container">
+      <h1 className="page-title">{data.textName}</h1>
+      <div 
+        className="page-content" 
+        dangerouslySetInnerHTML={{ __html: renderBlocksToHTML(data.description) }} 
+      />
+    </div>
+  );
 };
 
 export default Privacy;

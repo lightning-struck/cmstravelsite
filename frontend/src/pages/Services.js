@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import { clientRoutes } from "../routes/client.routes";
 import { renderBlocksToHTML } from "../utils/renderBlock";
 
-const Offer = () => {
+const ServicesPage = () => {
   const nav = useLocation();
   const pathName = nav.pathname.replace("/", "");
   const [data, setData] = useState(null);
@@ -12,13 +12,13 @@ const Offer = () => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    const url = clientRoutes.getInformation + pathName;
-    console.log("Запрос Offer:", url);
+    const url = clientRoutes.getServices + pathName;
+    console.log(`Запрос ${pathName}:`, url);
 
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        console.log("Ответ API Offer:", data);
+        console.log(`Ответ API ${pathName}:`, data);
         if (data.data && data.data.length > 0) {
           setData(data.data[0]);
         } else {
@@ -27,7 +27,7 @@ const Offer = () => {
         setLoading(false);
       })
       .catch((err) => {
-        console.error("Ошибка загрузки Offer:", err);
+        console.error(`Ошибка загрузки ${pathName}:`, err);
         setError(true);
         setLoading(false);
       });
@@ -60,4 +60,4 @@ const Offer = () => {
   );
 };
 
-export default Offer;
+export default ServicesPage;

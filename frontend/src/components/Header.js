@@ -308,10 +308,10 @@ const Header = () => {
                     >
                       <ul>
                         <li>
-                          <a href="#">Организация трансфера</a>
+                          <a href="/transfer">Организация трансфера</a>
                         </li>
                         <li>
-                          <a href="#">Экскурсии</a>
+                          <a href="ekskursii">Экскурсии</a>
                         </li>
                       </ul>
                     </div>
@@ -354,13 +354,15 @@ const Header = () => {
                           <a href="/faq">❓ Вопросы и ответы</a>
                         </li>
                         <li>
-                          <a href="/privacy">🔒 Политика конфиденциальности</a>
+                          <a href="/privacy-policy">
+                            🔒 Политика конфиденциальности
+                          </a>
                         </li>
                         <li>
-                          <a href="/offer">📄 Договор оферты</a>
+                          <a href="/oferta">📄 Договор оферты</a>
                         </li>
                         <li>
-                          <a href="/insurance">🛡️ Страховка туристов</a>
+                          <a href="/insure">🛡️ Страховка туристов</a>
                         </li>
                       </ul>
                     </div>

@@ -1,34 +1,63 @@
-import React from 'react';
-import './Pages.css';
+import React, { useEffect, useState } from "react";
+import "./Pages.css";
+import { useLocation } from "react-router-dom";
+import { clientRoutes } from "../routes/client.routes";
+import { renderBlocksToHTML } from "../utils/renderBlock";
 
 const FAQ = () => {
+  const nav = useLocation();
+  const pathName = nav.pathname.replace("/", "");
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    const url = clientRoutes.getInformation + pathName;
+    console.log("Запрос FAQ:", url);
+
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Ответ API FAQ:", data);
+        if (data.data && data.data.length > 0) {
+          setData(data.data[0]);
+        } else {
+          setError(true);
+        }
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Ошибка загрузки FAQ:", err);
+        setError(true);
+        setLoading(false);
+      });
+  }, [pathName]);
+
+  if (loading) {
     return (
-        <div className="page-container">
-            <h1 className="page-title">Вопросы и ответы</h1>
-            <div className="faq-list">
-                <div className="faq-item">
-                    <h3>Как забронировать тур?</h3>
-                    <p>Вы можете оставить заявку на нашем сайте через форму обратной связи, либо позвонить нам по телефону +7 (908) 967-27-57. Наш менеджер свяжется с вами для подтверждения бронирования.</p>
-                </div>
-                <div className="faq-item">
-                    <h3>Нужна ли виза для поездки в Китай?</h3>
-                    <p>Для поездки в Китай требуется виза. Мы помогаем с оформлением визы — полный пакет документов и сопровождение.</p>
-                </div>
-                <div className="faq-item">
-                    <h3>Какие документы нужны для поездки?</h3>
-                    <p>Загранпаспорт (срок действия не менее 6 месяцев), виза, медицинская страховка, авиабилеты и ваучер на проживание.</p>
-                </div>
-                <div className="faq-item">
-                    <h3>Можно ли оплатить тур картой?</h3>
-                    <p>Да, мы принимаем оплату банковскими картами, наличными в офисе, а также безналичный перевод для юридических лиц.</p>
-                </div>
-                <div className="faq-item">
-                    <h3>Что входит в стоимость тура?</h3>
-                    <p>В стоимость входит: проживание в отеле, трансфер, медицинская страховка, услуги гида-переводчика. Авиабилеты и питание могут быть включены в зависимости от выбранного тура.</p>
-                </div>
-            </div>
-        </div>
+      <div className="page-container">
+        <div className="loading">Загрузка...</div>
+      </div>
     );
+  }
+
+  if (error || !data) {
+    return (
+      <div className="page-container">
+        <div className="error">Страница не найдена</div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="page-container">
+      <h1 className="page-title">{data.textName}</h1>
+      <div 
+        className="page-content" 
+        dangerouslySetInnerHTML={{ __html: renderBlocksToHTML(data.description) }} 
+      />
+    </div>
+  );
 };
 
 export default FAQ;

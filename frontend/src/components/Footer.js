@@ -36,13 +36,13 @@ const Footer = () => {
                 <a href="/faq">❓ Вопросы и ответы</a>
               </li>
               <li>
-                <a href="/privacy">🔒 Политика конфиденциальности</a>
+                <a href="/privacy-policy">🔒 Политика конфиденциальности</a>
               </li>
               <li>
-                <a href="/offer">📄 Договор оферты</a>
+                <a href="/oferta">📄 Договор оферты</a>
               </li>
               <li>
-                <a href="/insurance">🛡️ Страховка туристов</a>
+                <a href="/insure">🛡️ Страховка туристов</a>
               </li>
             </ul>
           </div>
