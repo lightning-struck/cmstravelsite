@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
-import { BASE_URL } from "../../../routes/client.routes";
+import { BASE_URL, clientRoutes } from "../../../routes/client.routes";
 import styles from "./TemplateTour.module.css";
 import cn from "classnames";
 import "swiper/css";
@@ -25,13 +25,24 @@ const TemplateTour = ({ tour }) => {
   const formRef = useOutsideClick(() => {
     setOpenModal(false);
   });
+  const [tours, setTours] = useState([]);
 
-  const [isVisible, setVisible] = useState(false) 
+  useEffect(() => {
+    fetch(clientRoutes.getTours)
+      .then((res) => res.json())
+      .then((data) => {
+        setTours(data.data);
+      })
+      .catch((err) => {
+        console.error("Ошибка загрузки туров:", err);
+      });
+  }, []);
+  const [isVisible, setVisible] = useState(false);
   return (
     <>
       <div className={cn(styles.modal, isOpenModal && styles.open)}>
         <div ref={formRef} className={styles.modal_wrapper}>
-          <BookingForm className={styles.form} />
+          <BookingForm tours={tours} className={styles.form} />
           <button className={styles.close} onClick={() => setOpenModal(false)}>
             <svg width="24" height="24" viewBox="0 0 24 24">
               <path
@@ -88,7 +99,7 @@ const TemplateTour = ({ tour }) => {
               <div className={styles.tabContent}>
                 {activeTab === "description" && (
                   <>
-                    <AnimateHeight height={isVisible ? 'auto' : 300}>
+                    <AnimateHeight height={isVisible ? "auto" : 300}>
                       <div className={styles.tourDescription}>
                         {tourData.Description?.split("\n").map((p, i) => (
                           <p key={i}>{p}</p>
@@ -96,7 +107,12 @@ const TemplateTour = ({ tour }) => {
                       </div>
                     </AnimateHeight>
 
-                    <button className={styles.colapse_btn} onClick={() => setVisible(!isVisible)}>{isVisible ? "Свернуть" : "Читать полностью"}</button>
+                    <button
+                      className={styles.colapse_btn}
+                      onClick={() => setVisible(!isVisible)}
+                    >
+                      {isVisible ? "Свернуть" : "Читать полностью"}
+                    </button>
                   </>
                 )}
 

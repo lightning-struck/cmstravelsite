@@ -53,7 +53,7 @@ const BookingFormContent = ({ formData, tours, status, handleChange, handleSubmi
                         <option value="">Выберите тур</option>
                         {tours && tours.map(tour => (
                             <option key={tour.id} value={tour.id}>
-                                {tour.Title} — {tour.country?.Title} ({tour.DurationDays || tour.Duration} дней) — {tour.Price || tour.Stoimost_rub} ₽
+                                {tour.Title} — {tour.country?.Title}
                             </option>
                         ))}
                     </select>

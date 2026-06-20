@@ -35,12 +35,12 @@ const Slider = () => {
       }
     }
   };
-  // Загружаем туры из Strapi (только Китай)
+  
   useEffect(() => {
     fetch(clientRoutes.getTours)
       .then((res) => res.json())
       .then((data) => {
-        // Фильтруем только туры по Китаю
+
         const chinaTours = data.data.filter(
           (tour) => tour.country?.Title === "Китай",
         );

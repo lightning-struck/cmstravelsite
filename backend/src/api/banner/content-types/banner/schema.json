@@ -32,7 +32,7 @@
           "localized": true
         }
       },
-      "required": true,
+      "required": false,
       "default": "Описание"
     },
     "Photo": {

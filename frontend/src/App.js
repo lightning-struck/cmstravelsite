@@ -24,8 +24,7 @@ import ServicesPage from "./pages/Services";
 function App() {
   const [tours, setTours] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  // Загружаем туры из Strapi
+  
   useEffect(() => {
     fetch(clientRoutes.getTours)
       .then((res) => res.json())

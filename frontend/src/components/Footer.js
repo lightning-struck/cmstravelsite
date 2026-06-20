@@ -60,7 +60,7 @@ const Footer = () => {
                 <a href="#">📸 Галерея</a>
               </li>
               <li>
-                <a href="#">⭐ Отзывы</a>
+                <a href="/reviews">⭐ Отзывы</a>
               </li>
               <li>
                 <a href="#">📞 Контакты</a>

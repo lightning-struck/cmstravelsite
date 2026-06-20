@@ -450,7 +450,6 @@ export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Description: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -820,6 +819,18 @@ export interface ApiOfferOffer extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
+    check: Schema.Attribute.Enumeration<
+      [
+        '\u043D\u043E\u0432\u0430\u044F',
+        '\u0432 \u0440\u0430\u0431\u043E\u0442\u0435',
+        '\u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u0430',
+      ]
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     Comment: Schema.Attribute.RichText &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

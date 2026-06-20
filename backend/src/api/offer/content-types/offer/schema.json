@@ -78,6 +78,19 @@
           "localized": true
         }
       }
+    },
+    "check": {
+      "type": "enumeration",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "enum": [
+        "новая",
+        "в работе",
+        "завершена"
+      ]
     }
   }
 }
